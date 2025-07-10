@@ -4,5 +4,12 @@ layout: single
 permalink: /documentation/
 ---
 
+## User Documentation
+
+- [Overview of Project](/documentation/overview/)
 - [How to Add a Data Set](/documentation/how_to_add_a_dataset)
-- [Data Lake Architecture](/documentation/architcture/)
+
+## Developer Documentation
+
+- [Design Goals](/documentation/design_goals/)
+- [Architecture](/documentation/architecture/)
