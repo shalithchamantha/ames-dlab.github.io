@@ -16,7 +16,7 @@ head_scripts:
 
 # Site Settings
 locale                   : "en-US"
-title                    : Ames Data Lake
+title                    : DLAB
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Ames National Laboratory"

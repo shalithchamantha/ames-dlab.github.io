@@ -1,5 +1,5 @@
 ---
-title: "Data Lake"
+title: "DLAB: Data Lake for AMES Breakthroughs"
 layout: splash
 permalink: /
 header:
@@ -9,8 +9,10 @@ header:
   actions:
     - label: "Dashboard"
       url: "/dashboard/"
+    - label: "Documentation"
+      url: "/documentation/"
 excerpt: >-
-         Data, data, data everywhere."
+         Fueling discovery from the depths of AMES's data
 intro: 
   - excerpt: 'The Data Lake...'
 gallery:
