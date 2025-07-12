@@ -1,28 +1,13 @@
 import json
 import frontmatter
+import sys
 
-def generate_dashboard_md(
-    json_path: str,
-    output_md: str = "../docs/_pages/dashboard.md",
-    title: str = "Dashboard",
-    layout: str = "single",
-    permalink: str = "/dashboard/"
-):
-    """
-    Load dataset metadata from JSON and generate a Jekyll-ready Markdown file.
-
-    Args:
-        json_path: Path to your JSON file (e.g., 'datasets.json').
-        output_md: Filename for the generated Markdown (default 'dashboard.md').
-        title: YAML front-matter title.
-        layout: Jekyll layout to apply.
-        permalink: Page permalink.
-    """
-    # Load JSON
+def load_json(path):
     with open(json_path, "r", encoding="utf-8") as f:
         json_data = json.load(f)
 
-    # Build Markdown table lines with headers and full columns
+
+def generate_md_table(json_data):
     columns = [
         "Key", "Dataset Name", "Description", "Version", "Created On",
         "Updated On", "Contributors", "Data Files", "Tags",
@@ -55,30 +40,28 @@ def generate_dashboard_md(
             data.get("schema_version", "")
         ]
         md_lines.append("| " + " | ".join(row_cells) + " |")
+    return "Below is a list of available data sets.\n\n" + "\n".join(md_lines) + "\n"
 
-    # Assemble body with introduction and table
-    body = "\n".join([
-        "Below is a list of available data sets.",
-        "",
-        *md_lines,
-        ""
-    ])
 
-    # YAML front matter metadata
-    metadata = {
-        "title": title,
-        "layout": layout,
-        "permalink": permalink
-    }
+def wrap_front_matter(content, title = "Dashboard", layout = "single", permalink = "/dashboard/"):
+    post = frontmatter.Post(content, **{"title": title, "layout": layout, "permalink":permalink})
+    return frontmatter.dumps(post)
 
-    # Build Post and write to file using string output
-    post = frontmatter.Post(body, **metadata)
-    with open(output_md, "w", encoding="utf-8") as outf:
-        outf.write(frontmatter.dumps(post))
 
-  # print(f"Generated '{output_md}' with {len(json_data)} rows.")
+def write_to_file(path, content):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+
+def main(in_json, out_md):
+    data = load_json(in_json)
+    md = generate_md_table(data)
+    full = wrap_front_matter(md)
+    write_to_file(out_md, full)
 
 
 if __name__ == "__main__":
-    generate_dashboard_md("../docs/assets/js/all_metadata.json")
+    if len(sys.argv) != 3:
+        sys.exit("Usage: python json2table.py <input.json> <output.md>")
+    main(sys.argv[1], sys.argv[2])
 
