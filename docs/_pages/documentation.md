@@ -13,3 +13,5 @@ permalink: /documentation/
 
 - [Design Goals](/documentation/design_goals/)
 - [Architecture](/documentation/architecture/)
+
+  ## Step by step Guide
