@@ -1,11 +1,11 @@
 ---
-title: Overview of Project
+title: Overview of DLAB
 layout: single
 permalink: /documentation/overview/
 ---
 
-The purpose of this page is to acquaint you with the *insert project name here*
-project. The goal of the project is to:
+The purpose of this page is to acquaint you with the DLAB project. The goal of 
+the project is to:
 
 Design, implement, and maintain a data lake for Ames National Laboratory's
 unique data in order to facilitate data-driven scientific research.
