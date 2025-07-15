@@ -29,6 +29,6 @@ gallery:
 This website is under heavy construction at the moment.
 {: .notice--warning}
 
-Welcome to the Ames Data Lake
+Welcome to the home of DLAB, i.e., Data Lake for AMES Breakthroughs.
 
 {% include gallery %}

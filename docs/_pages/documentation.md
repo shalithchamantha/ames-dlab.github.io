@@ -6,7 +6,7 @@ permalink: /documentation/
 
 ## User Documentation
 
-- [Overview of Project](/documentation/overview/)
+- [Overview of DLAB](/documentation/overview/)
 - [How to Add a Data Set](/documentation/how_to_add_a_dataset)
 
 ## Developer Documentation
