@@ -3,8 +3,10 @@ import frontmatter
 import sys
 
 def load_json(path):
-    with open(json_path, "r", encoding="utf-8") as f:
+    json_data = None
+    with open(path, "r", encoding="utf-8") as f:
         json_data = json.load(f)
+    return json_data
 
 
 def generate_md_table(json_data):
