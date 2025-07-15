@@ -16,17 +16,16 @@ head_scripts:
 
 # Site Settings
 locale                   : "en-US"
-title                    : Ames Data Lake
+title                    : DLAB
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "Fueling discovery from the depth of AMES's data"
 name                     : "Ames National Laboratory"
-description              : >- # this means to ignore newlines until "url:"
-                           Ames National Laboratory data lake.
+description              : "Data Lake for AMES Breakthroughs"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "dlakesummer/dlakesummer.github.io"
+repository               : "ames-dlab/ames-dlab.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/logo2.png
 words_per_minute         : 200
 breadcrumbs              : true
 reCaptcha:
@@ -68,7 +67,7 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/dlakesummer"
+      url: "https://github.com/ames-dlab"
 
 
 # Reading Files
@@ -207,8 +206,6 @@ defaults:
       type: posts
     values:
       layout: single
-      author: ryan_richard
-      author_profile: true
       read_time: true
       comments: # true
       share: true
@@ -220,5 +217,3 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
-      author: ryan_richard
