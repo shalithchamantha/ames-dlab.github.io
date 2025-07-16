@@ -20,3 +20,6 @@ cv.synctex.gz
 
 # Mac Files
 .DS_Store
+
+# pycache files
+__pycache__/
