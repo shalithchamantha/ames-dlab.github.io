@@ -40,23 +40,23 @@ Step by Step guide to adding your dataset to the DLAB organization
      - Git Bash
      - Github Desktop
      - VS Code
-  3) GUIDE FOR:Open terminal or Powershell in VS Code
-  4) Clone your main repo to your local devices
-  5) Run these commands:
-  6) git clone URL
-  7) cd REPONAME
-  8) Ex) git clone https://github.com/sadak2004/gitsubmodulerepo.git
-  9) cd gitsubmodulerepo
-  10) Now add the second repo as a submodule inside a folder.
-  11) Run these commands:
-  12) Git submodule add URLSUBREPO
-  13) ex) git submodule add https://github.com/sadak2004/subrepo.git
-  14) Commit and push the changes.
-  15) Run these commands:
-  16) git add .gitmodules REPONAME
-  17) git commit -m "COMMIT MESSAGE"
-  18) git push origin main
-  19) For further help/information: visit this link https://gist.github.com/gitaarik/8735255
+  2) GUIDE FOR:Open terminal or Powershell in VS Code
+  3) Clone your main repo to your local devices
+  4) Run these commands:
+     - git clone URL
+     - cd REPONAME
+     - Ex) git clone https://github.com/sadak2004/gitsubmodulerepo.git
+     - cd gitsubmodulerepo
+  5) Now add the second repo as a submodule inside a folder.
+  6) Run these commands:
+     - Git submodule add URLSUBREPO
+       ex) git submodule add https://github.com/sadak2004/subrepo.git
+  7) Commit and push the changes.
+  8) Run these commands:
+      - git add .gitmodules REPONAME
+      - git commit -m "COMMIT MESSAGE"
+      - git push origin main
+  9) For further help/information: visit this link https://gist.github.com/gitaarik/8735255
 
 ***
 
