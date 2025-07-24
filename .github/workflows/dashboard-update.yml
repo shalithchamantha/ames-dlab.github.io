@@ -3,7 +3,8 @@ name: Nightly Dashboard Update
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 
 
 jobs:
@@ -13,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -33,7 +34,7 @@ jobs:
       - name: Generate dashboard.md
         run: |                       
           python scripts/json2table.py \
-            docs/assets/js/all_metadata.json \
+            all_metadata.json \
             docs/_pages/dashboard.md
 
 

@@ -1,0 +1,38 @@
+name: Sync of all_metadata.json
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+
+jobs:
+  nightly-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout destination repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          repository: 'AMES-DLAB/data_lake'
+          path: source-repo
+          fetch-depth: 1
+
+
+      - name: Copy metadata file
+        run: |
+          cp source-repo/all_metadata.json all_metadata.json
+
+
+      - name: Commit & push update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add all_metadata.json
+          git commit -m "Nightly sync all_metadata.json from source" || echo "No changes or commit failed"
+          git push
