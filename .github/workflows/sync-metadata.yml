@@ -48,8 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.nightly-sync.outputs.pull-request-number != ''
     steps:
-      -name: Enable Auto-Merge
-       uses: peter-evans/enable-pull-request-automerge@v3
-       with:
-         pull-request-number: ${{ needs.nightly-sync.outputs.pull-request-number }}
-         merge-method: merge
+      - name: Enable Auto-Merge
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ needs.nightly-sync.outputs.pull-request-number }}
+          merge-method: merge
