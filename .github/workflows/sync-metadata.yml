@@ -39,4 +39,17 @@ jobs:
         with:
           branch: sync-all-metadata
           title: "Nightly Sync: all_metadata.json"
-          body: "Automated pull request syncing metadata from source repo" 
+          body: "Automated pull request syncing metadata from source repo"
+          delete-branch: false
+
+
+  auto_merge:
+    needs: nightly-sync
+    runs-on: ubuntu-latest
+    if: needs.nightly-sync.outputs.pull-request-number != ''
+    steps:
+      -name: Enable Auto-Merge
+       uses: peter-evans/enable-pull-request-automerge@v3
+       with:
+         pull-request-number: ${{ needs.nightly-sync.outputs.pull-request-number }}
+         merge-method: merge
