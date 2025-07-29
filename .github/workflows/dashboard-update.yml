@@ -1,6 +1,11 @@
 name: Nightly Dashboard Update
 
 
+permissions:
+  contents: write
+  pull-requests: write
+
+
 on:
   schedule:
     - cron: '0 6 * * *'
@@ -45,9 +50,29 @@ jobs:
           git add docs/_pages/dashboard.md
           if ! git diff --cached --quiet; then
             git commit -m "chore: nightly update of dashboard.md"
-            git push
           else
-            echo "No changes to commit"
-          fi
+            echo "No changes to commit" && exit 0
+
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: update-dashboard-md
+          title: "Nightly Update: dashboard.md"
+          body: "Automated PR to update dashboard.md from latest metadata"
+          delete-branch: false
+
+
+  auto_merge:
+    needs: update-dashboard
+    runs-on: ubuntu-latest
+    if: needs.update-dashboard.outputs.pull-request-number != ''
+    steps:
+      - name: Enable Auto-Merge
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ needs.update-dashboard.outputs.pull-request-number }}
+          merge-method: merge
 
 
