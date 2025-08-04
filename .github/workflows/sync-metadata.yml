@@ -23,7 +23,7 @@ jobs:
       - name: Checkout source repo
         uses: actions/checkout@v4
         with:
-          repository: 'AMES-DLAB/data_lake'
+          repository: 'shalithchamantha/data_lake'
           fetch-depth: 1
           path: temp-source
           sparse-checkout: |
